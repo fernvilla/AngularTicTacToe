@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+<html x-ng-app="">
+	<head>
+		<title>Tic Tac Toe</title>
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+
+		<style>
+			.cell {float:left; 
+				width: 150px;
+				height: 150px;
+				background-color: orange;
+				margin:3px;
+				font-size: 135px;
+				font-family: helvetica;
+				color: #FFFFFF;
+				text-align: center;}
+			.clear {clear: both;}
+
+		</style>
+
+	</head>
+
+	<body x-ng-controller="TicTacToeCtrl" x-ng-init="play= {val:true};"> 
+		<h1>Tic Tac Toe</h1>
+
+		<div class="board" x-ng-repeat="cell in cells track by $index" x-ng-class="{cell:true, clear: $index % 3 == 0}" x-ng-click="nextMove()">{{cell}}</div>
+		
+		<br />
+		<button ng-click="reset()">Reset</button>
+
+
+	</body>
 </html>
