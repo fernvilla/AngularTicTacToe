@@ -22,10 +22,10 @@
 
 	</head>
 
-	<body x-ng-controller="TicTacToeCtrl" x-ng-init="play= {val:true};"> 
+	<body x-ng-controller="TicTacToeCtrl"> 
 		<h1>Tic Tac Toe</h1>
 
-		<div class="board" x-ng-repeat="cell in cells track by $index" x-ng-class="{cell:true, clear: $index % 3 == 0}" x-ng-click="nextMove()">{{cell}}</div>
+		<div class="board" x-ng-repeat="cell in cells track by $index" x-ng-class="{cell:true, clear: $index % 3 == 0}" x-ng-click="nextMove($index)">{{cell}}</div>
 		
 		<br />
 		<button ng-click="reset()">Reset</button>
