@@ -5,6 +5,18 @@ body {
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: cover;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 30px;
+    background-color: #1b9ed4;
+    width: 200px;
+    margin: 15px auto;
+    padding: 2px;
+    text-shadow: 3px 3px 5px #000000;
+    box-shadow: 5px 5px 2px #000000;
+    border: 2px outset #f3f1f4;
 }
 
 #board{
@@ -15,10 +27,11 @@ body {
 
 .cell {
     float:left; 
-    width: 146px;
-    height: 146px;
+    width: 144px;
+    height: 144px;
     background-color: #1b9ed4;
-    margin:2px;
+    margin: 2px;
+    border: 1px solid #f3f1f4;
     font-size: 135px;
     text-align: center;
     box-shadow: 5px 5px 2px #000000;
@@ -43,7 +56,7 @@ button {
     box-shadow: 5px 5px 5px #000000;
     background-color: #1b9ed4;
     color: #FFFFFF;
-    border: 1px outset #f3f1f4;
+    border: 2px outset #f3f1f4;
     font-size: 13px;
     padding-top: 3px;
     text-shadow: 2px 2px 5px #000000;
