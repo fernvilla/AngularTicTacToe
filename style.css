@@ -1,12 +1,54 @@
 body {
-	text-align: center;
-	font-family: Helvetica;
+    text-align: center;
+    font-family: Helvetica;
     text-shadow: 3px 3px 5px #000000;
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: cover;
 }
 
+#board{
+    margin: 0 auto;
+    height: 450px;
+    width: 450px;
+}
+
+.cell {
+    float:left; 
+    width: 146px;
+    height: 146px;
+    background-color: #1b9ed4;
+    margin:2px;
+    font-size: 135px;
+    text-align: center;
+    box-shadow: 5px 5px 2px #000000;
+    border-radius: 20px;
+}
+
+.cell:hover {
+    background-color: #FFFFFF;
+    color: #0099FF;
+    box-shadow: 8px 10px 5px #000000;
+}
+
+            
+.clear {
+    clear: both;
+}
+
+button {
+    height: 30px;
+    width: 120px;
+    margin: 10px auto;
+    box-shadow: 5px 5px 5px #000000;
+    background-color: #1b9ed4;
+    color: #FFFFFF;
+    border: 1px outset #f3f1f4;
+    font-size: 13px;
+    padding-top: 3px;
+    text-shadow: 2px 2px 5px #000000;
+}
+/*
 h1 {
 	font-size: 35px;
     
@@ -94,4 +136,5 @@ button {
 #restart{
     margin: 8px; 
 }
+*/
 
