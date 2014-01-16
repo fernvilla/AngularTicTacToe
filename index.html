@@ -7,13 +7,15 @@
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 
-	<body x-ng-controller="TicTacToeCtrl" x-ng-init="play=true"> 
+	<body x-ng-controller="TicTacToeCtrl" x-ng-init="play= {val:true}"> 
 		<h1>Tic Tac Toe</h1>
-		<div id ="board">
-			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell:true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); checkWin()">{{cell}}</div>
+		<h2>{{nextPlayer}}</h2>
+		<h2>{{winner}}</h2> 
+		<div id ="board" id="{{cell[$index]}}" >
+			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
 		<div>	
 		<br />
-		<button ng-click="reset()">Reset</button>
+		<button x-ng-click="reset()">Reset</button>
 	
 	</body>
 </html>
