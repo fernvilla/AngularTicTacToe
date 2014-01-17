@@ -5,7 +5,6 @@ body {
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: cover;
-    margin: 0 auto;
 }
 
 h1 {
@@ -21,6 +20,9 @@ h1 {
 
 h2 {
     font-size: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #000000;
+    background-color: rgba(0,0,0.5);
 }
 
 aside {
@@ -32,6 +34,33 @@ aside {
     text-align: left;
 }
 
+table {
+    box-shadow: 5px 5px 2px #000000;
+}
+
+table, th {
+    border: 1px solid #93E0FA;
+    background-color: #1b9ed4;  
+    width: 200px; 
+    font-size: 15px;
+    text-align: center;
+}
+
+th {
+    padding: 10px;
+    
+}
+
+td {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+#clr {
+    margin-left: 37px;
+    margin-top: 5px;
+}
 
 #board{
     margin: 0 auto;

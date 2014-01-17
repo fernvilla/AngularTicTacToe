@@ -4,12 +4,10 @@ function TicTacToeCtrl ($scope) {
 	$scope.p1score = 0;
 	$scope.p2score = 0;
 	$scope.ties = 0;
-
 	$scope.nextPlayer = 'X is next!';
-
 	$scope.cells = ['','','','','','','','',''];
 
-	$scope.reset = function() {
+	$scope.resetBoard = function() {
 		$scope.cells = ['','','','','','','','',''];
 		turn = 0;
 		play = true;
@@ -69,7 +67,11 @@ function TicTacToeCtrl ($scope) {
 			$scope.ties++;
 			play = false;
 		}
-	}
+	};
 
-
+	$scope.clearTotals = function() {
+		$scope.p1score = 0;
+		$scope.p2score = 0;
+		$scope.ties = 0;
+	};
 };
