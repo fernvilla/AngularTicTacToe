@@ -67,7 +67,7 @@ input {
     border: 1px inset #393d50;
 }
 
-#board{
+#board {
     margin: 0 auto;
     height: 450px;
     width: 450px;
@@ -111,7 +111,6 @@ button {
     cursor: pointer;
 }
 
-#reset{
+#reset {
     margin-top: 20px;
-
 }
