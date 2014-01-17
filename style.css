@@ -11,27 +11,25 @@ h1 {
     font-size: 30px;
     background-color: #000000;
     width: 200px;
-    margin: 15px auto;
+    margin: 25px auto;
     padding: 2px;
-    text-shadow: 3px 3px 5px #000000;
     box-shadow: 5px 5px 2px #000000;
     border: 2px outset #f3f1f4;
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: bold;
-    text-shadow: 3px 3px 5px #000000;
-    background-color: rgba(0,0,0.5);
+    font-size: 22px;
+    padding: 2px;
+    background-color: red;
 }
 
 aside {
     position: absolute;
-    padding: 30px 80px;
+    padding: 0px 80px;
     left: 0;
     top: 150px;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 table {
@@ -55,11 +53,6 @@ td {
     background-color: #000000;
     padding: 10px;
     text-align: center;
-}
-
-#clr {
-    margin-left: 37px;
-    margin-top: 5px;
 }
 
 #board{
@@ -94,11 +87,16 @@ td {
 button {
     height: 30px;
     width: 120px;
-    margin: 15px auto;
+    margin: 0 auto;
     box-shadow: 5px 5px 2px #000000;
     background-color: #000000;
     color: #FFFFFF;
     border: 2px outset #f3f1f4;
     font-size: 13px;
     text-shadow: 2px 2px 3px #000000;
+}
+
+#reset{
+    margin-top: 20px;
+
 }
