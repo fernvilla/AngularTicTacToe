@@ -73,5 +73,7 @@ function TicTacToeCtrl ($scope) {
 		$scope.p1score = 0;
 		$scope.p2score = 0;
 		$scope.ties = 0;
+		$scope.player1 = '';
+		$scope.player2 = '';
 	};
 };
