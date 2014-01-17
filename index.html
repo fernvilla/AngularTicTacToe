@@ -7,9 +7,9 @@
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 
-	<body x-ng-controller="TicTacToeCtrl" x-ng-init="$scope.nextPlayer = $scope.player1"> 
+	<body x-ng-controller="TicTacToeCtrl"> 
 		<aside>
-			<h2>{{player1}} vs. {{player2}}</h2>
+			<h2 id="vs">{{player1}} vs. {{player2}}</h2>
 			<h2>{{nextPlayer}}{{winner}}</h2>
 	        <table>
                 <tr>
