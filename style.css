@@ -18,19 +18,23 @@ h1 {
 }
 
 h2 {
-    font-size: 22px;
-    padding: 2px;
-    background-color: red;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #00992f;
+    box-shadow: 5px 5px 2px #000000;
+    border: 2px outset #f3f1f4;
+    margin-bottom: 40px;
 }
 
 aside {
     position: absolute;
     padding: 0px 80px;
     left: 0;
-    top: 150px;
+    top: 100px;
     font-size: 20px;
     text-align: center;
 }
+
 
 table {
     box-shadow: 5px 5px 2px #000000;

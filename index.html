@@ -9,7 +9,7 @@
 
 	<body x-ng-controller="TicTacToeCtrl"> 
 		<aside>
-		<h2>{{nextPlayer}} {{winner}}</h2>
+			<h2>{{nextPlayer}} {{winner}}</h2>
 	        <table>
                 <tr>
                     <th>PLAYER SCORES</th>
@@ -30,12 +30,11 @@
 
 		<h1>Tic Tac Toe</h1>
 		
-
 		<div id ="board" id="{{cell[$index]}}" >
 			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
 		<div>	
+
 		<br />
-		<button id="reset" x-ng-click="resetBoard()">Reset</button>
-	
+		<button id="reset" x-ng-click="resetBoard()">Reset</button>	
 	</body>
 </html>
