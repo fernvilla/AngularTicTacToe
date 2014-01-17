@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: Helvetica;
-    text-shadow: 3px 3px 5px #000000;
+    text-shadow: 3px 3px 2px #000000;
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: cover;
@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 19px;
     padding: 5px;
     background-color: #00992f;
     box-shadow: 5px 5px 2px #000000;
@@ -42,7 +42,7 @@ table {
 table, th {
     border: 1px solid #93E0FA;
     background-color: #1b9ed4;  
-    width: 200px; 
+    width: 190px; 
     font-size: 15px;
     text-align: center;
 }
@@ -63,7 +63,8 @@ input {
     color: #FFFFFF;
     text-align: center;
     border: none;
-    border-bottom: 1px solid gray;
+    font-size: 13px;
+    border: 1px inset #393d50;
 }
 
 #board{
@@ -90,6 +91,7 @@ input {
     background-color: #FFFFFF;
     color: #000000;
     box-shadow: 8px 10px 5px #000000;
+    border: 1px solid #00992f;
 }
           
 .clear {
