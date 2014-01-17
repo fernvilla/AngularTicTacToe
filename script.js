@@ -1,6 +1,9 @@
 function TicTacToeCtrl ($scope) {
 	var turn = 0;
 	var play = true;
+	$scope.p1score = 0;
+	$scope.p2score = 0;
+	$scope.ties = 0;
 
 	$scope.nextPlayer = 'X is next!';
 
@@ -9,6 +12,7 @@ function TicTacToeCtrl ($scope) {
 	$scope.reset = function() {
 		$scope.cells = ['','','','','','','','',''];
 		turn = 0;
+		play = true;
 		$scope.nextPlayer = 'X is next!';
 		$scope.winner = '';
 	};
@@ -42,6 +46,7 @@ function TicTacToeCtrl ($scope) {
 		{
 			$scope.winner = 'X Wins in ' + turn + ' moves!';
 			$scope.nextPlayer = '';
+			$scope.p1score++;
 			play = false;
 		}
 		else if (($scope.cells[0] =='O' && $scope.cells[1]=='O' && $scope.cells[2] =='O') ||
@@ -55,11 +60,13 @@ function TicTacToeCtrl ($scope) {
 		{
 			$scope.winner = 'O Wins in ' + turn + ' moves!';
 			$scope.nextPlayer = '';
+			$scope.p2score++;
 			play = false;
 		}
 		else if (turn == 9) {
 			$scope.winner = 'Draw!';
 			$scope.nextPlayer = '';
+			$scope.ties++;
 			play = false;
 		}
 	}
