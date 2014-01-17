@@ -23,6 +23,16 @@ h2 {
     font-size: 20px;
 }
 
+aside {
+    position: absolute;
+    padding: 30px 80px;
+    left: 0;
+    top: 150px;
+    font-size: 20px;
+    text-align: left;
+}
+
+
 #board{
     margin: 0 auto;
     height: 450px;
