@@ -7,18 +7,19 @@
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 
-	<body x-ng-controller="TicTacToeCtrl"> 
+	<body x-ng-controller="TicTacToeCtrl" x-ng-init="$scope.nextPlayer = $scope.player1"> 
 		<aside>
+			<h2>{{player1}} vs. {{player2}}</h2>
 			<h2>{{nextPlayer}}{{winner}}</h2>
 	        <table>
                 <tr>
                     <th>PLAYER SCORES</th>
                 </tr>
                 <tr>
-                    <td><input type="text" x-ng-model="player1" size="15" placeholder="Player 1 Name">: &nbsp; {{p1score}}</td>
+                    <td><input type="text" x-ng-model="player1" size="20" placeholder="Enter Player X">: &nbsp; {{p1score}}</td>
                 </tr>
                 <tr>
-                    <td><input type="text" x-ng-model="player2" size="15" placeholder="Player 2 Name">: &nbsp; {{p2score}}</td>
+                    <td><input type="text" x-ng-model="player2" size="20" placeholder="Enter Player O">: &nbsp; {{p2score}}</td>
                 </tr>
                 <tr>
                     <td>Ties: &nbsp; {{ties}}</td>

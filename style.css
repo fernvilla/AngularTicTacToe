@@ -18,12 +18,13 @@ h1 {
 }
 
 h2 {
-    font-size: 19px;
-    padding: 5px;
+    font-size: 18px;
+    width: 190px;
+    padding: 4px;
     background-color: #00992f;
     box-shadow: 5px 5px 2px #000000;
     border: 2px outset #f3f1f4;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 aside {
@@ -42,7 +43,7 @@ table {
 table, th {
     border: 1px solid #93E0FA;
     background-color: #1b9ed4;  
-    width: 190px; 
+    width: 200px; 
     font-size: 15px;
     text-align: center;
 }
@@ -60,10 +61,11 @@ td {
 
 input {
     background-color: #000000;
-    color: #FFFFFF;
+    color: #1eb9f9;
     text-align: center;
     border: none;
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: bold;
     border: 1px inset #393d50;
 }
 

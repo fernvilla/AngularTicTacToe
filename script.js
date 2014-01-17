@@ -4,14 +4,14 @@ function TicTacToeCtrl ($scope) {
 	$scope.p1score = 0;
 	$scope.p2score = 0;
 	$scope.ties = 0;
-	$scope.nextPlayer = 'X is next!';
+	$scope.nextPlayer = $scope.player1 + ' is next!';
 	$scope.cells = ['','','','','','','','',''];
 
 	$scope.resetBoard = function() {
 		$scope.cells = ['','','','','','','','',''];
 		turn = 0;
 		play = true;
-		$scope.nextPlayer = 'X is next!';
+		$scope.nextPlayer = $scope.player1 + ' is next!';
 		$scope.winner = '';
 	};
 
@@ -21,12 +21,12 @@ function TicTacToeCtrl ($scope) {
 			if (turn % 2 == 0 && cellBox == '') {
 				$scope.cells[$index] = 'X';
 				turn++;
-				$scope.nextPlayer = 'O is next!';
+				$scope.nextPlayer = $scope.player2 + ' is next!';
 			}
 			else if (cellBox == '') {
 				$scope.cells[$index] = 'O';
 				turn++;
-				$scope.nextPlayer = 'X is next!';
+				$scope.nextPlayer = $scope.player1 + ' is next!';
 			}
 			checkWin(cellBox);
 		};
@@ -42,7 +42,7 @@ function TicTacToeCtrl ($scope) {
 			($scope.cells[0] =='X' && $scope.cells[4]=='X' && $scope.cells[8] =='X') ||
 			($scope.cells[2] =='X' && $scope.cells[4]=='X' && $scope.cells[6] =='X'))
 		{
-			$scope.winner = 'X Wins in ' + turn + ' moves!';
+			$scope.winner = $scope.player1 + ' wins in ' + turn + ' moves!';
 			$scope.nextPlayer = '';
 			$scope.p1score++;
 			play = false;
@@ -56,7 +56,7 @@ function TicTacToeCtrl ($scope) {
 			($scope.cells[0] =='O' && $scope.cells[4]=='O' && $scope.cells[8] =='O') ||
 			($scope.cells[2] =='O' && $scope.cells[4]=='O' && $scope.cells[6] =='O'))
 		{
-			$scope.winner = 'O Wins in ' + turn + ' moves!';
+			$scope.winner = $scope.player2 +' wins in ' + turn + ' moves!';
 			$scope.nextPlayer = '';
 			$scope.p2score++;
 			play = false;
