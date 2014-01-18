@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html x-ng-app="">
+<html x-ng-app="" x-ng-controller="TicTacToeCtrl">
 	<head>
 		<title>Tic Tac Toe</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="{{stylePath}}">
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 
-	<body x-ng-controller="TicTacToeCtrl" x-ng-init="nextPlayer= 'Player 1 Begin!'"> 
+	<body x-ng-init="nextPlayer='Player 1 Begin!'"> 
 		<aside>
 			<h2 id="vs">{{player1}} vs. {{player2}}</h2>
 			<h2>{{nextPlayer}}{{winner}}</h2>
@@ -37,5 +37,6 @@
 
 		<br />
 		<button id="reset" x-ng-click="resetBoard()">Reset</button>	
+		<button id "change" x-ng-click="changeStyle()">Change Board</button>
 	</body>
 </html>

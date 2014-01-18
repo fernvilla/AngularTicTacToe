@@ -6,6 +6,7 @@ function TicTacToeCtrl ($scope) {
 	$scope.ties = 0;
 	$scope.nextPlayer = $scope.player1 + ' is next!';
 	$scope.cells = ['','','','','','','','',''];
+	$scope.stylePath = 'style.css';
 
 	$scope.resetBoard = function() {
 		$scope.cells = ['','','','','','','','',''];
@@ -76,4 +77,8 @@ function TicTacToeCtrl ($scope) {
 		$scope.player1 = '';
 		$scope.player2 = '';
 	};
+
+	$scope.changeStyle = function (){
+		$scope.stylePath = 'style2.css';
+	}
 };
