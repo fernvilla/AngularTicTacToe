@@ -79,7 +79,7 @@ function TicTacToeCtrl ($scope) {
 	};
 
 	$scope.changeStyle = function (){
-		if ($scope.stylePath = 'style.css') {
+		if ($scope.stylePath == 'style.css') {
 			$scope.stylePath = 'style2.css';
 		}
 		else {
