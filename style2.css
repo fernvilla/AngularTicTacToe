@@ -64,7 +64,7 @@ td {
 
 input {
     background-color: #000000;
-    color: #1eb9f9;
+    color: #FFFFFF;
     text-align: center;
     border: none;
     font-size: 12px;
@@ -94,7 +94,7 @@ input {
 
 .cell:hover {
     background-color: #FFFFFF;
-    color: #000000;
+    color: #1eb9f9;
     box-shadow: 8px 10px 5px #000000;
     border: 1px solid #00992f;
 }
