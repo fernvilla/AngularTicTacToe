@@ -122,7 +122,6 @@ button {
     margin: 25px;
 }
 
-
 @media screen and (max-width: 800px) {
     #board {
         height: 300px;
@@ -147,14 +146,8 @@ button {
     }   
 
     #aside * {
-
         display: none;
-    }
-
-    h1 {
-        display: none;
-    }
-
+    }   
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
@@ -171,21 +164,21 @@ button {
 
     h2 {
         font-size: 16px;
-        width: 120px;  
+        width: 140px;  
     }
 
     h1 {
-        font-size: 25px;
-        width: 150px;
+        font-size: 22px;
+        width: 140px;
     }
+
     #aside {
         position: absolute;
-        padding: 0px 40px;
         top: 40px;
-        left: 50px;
+        left: 20px;
         font-size: 20px;
         text-align: center;
-}
+    }
 
     table, th {
         width: 120px;
@@ -196,6 +189,5 @@ button {
         width: 80px;
         font-size: 10px;
     }   
-
 }
 
