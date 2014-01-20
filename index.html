@@ -8,36 +8,38 @@
 	</head>
 
 	<body x-ng-init="nextPlayer='Player 1 Begin!'"> 
-		<aside>
-			<h1>Tic Tac Toe</h1>
-			<h2 id="vs">{{player1}} vs. {{player2}}</h2>
-			
-	        <table>
-                <tr>
-                    <th>PLAYER SCORES</th>
-                </tr>
-                <tr>
-                    <td><input type="text" x-ng-model="player1" size="20" placeholder="Enter Player X">: &nbsp; {{p1score}}</td>
-                </tr>
-                <tr>
-                    <td><input type="text" x-ng-model="player2" size="20" placeholder="Enter Player O">: &nbsp; {{p2score}}</td>
-                </tr>
-                <tr>
-                    <td>Ties: &nbsp; {{ties}}</td>
-                </tr>
-	        </table>
+		<div id="main">
+			<h2 id="outcome">{{nextPlayer}}{{winner}}</h2>
 
-	        <br />
-	        <button x-ng-click="clearTotals()">Clear Totals</button>
-	    </aside>
+			<div id ="board">
+				<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
 
-		<h2>{{nextPlayer}}{{winner}}</h2>
-		<div id ="board">
-			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
-		<div>	
+				<button id="reset" x-ng-click="resetBoard()">Reset</button>	
+				<button id="change" x-ng-click="changeStyle()">Change Board</button>
+			<div>	
 
-		<br />
-		<button id="reset" x-ng-click="resetBoard()">Reset</button>	
-		<button id="change" x-ng-click="changeStyle()">Change Board</button>
+			<div id ="aside">
+				<h1>Tic Tac Toe</h1>
+				<h2 id="vs">{{player1}} vs. {{player2}}</h2>
+				
+		        <table>
+	                <tr>
+	                    <th>PLAYER SCORES</th>
+	                </tr>
+	                <tr>
+	                    <td><input type="text" x-ng-model="player1" size="20" placeholder="Enter Player X">: &nbsp; {{p1score}}</td>
+	                </tr>
+	                <tr>
+	                    <td><input type="text" x-ng-model="player2" size="20" placeholder="Enter Player O">: &nbsp; {{p2score}}</td>
+	                </tr>
+	                <tr>
+	                    <td>Ties: &nbsp; {{ties}}</td>
+	                </tr>
+		        </table>
+
+		        <br />
+		        <button x-ng-click="clearTotals()">Clear Totals</button>
+		    </div>
+		</div>
 	</body>
 </html>
