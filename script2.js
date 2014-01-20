@@ -1,5 +1,5 @@
-function TicTacToeCtrl ($scope) {
-	$scope.cells = ['','','','','','','','',''];
+function TicTacToeCtrl($scope) {
+	$scope.cells = ['', '', '', '', '', '', '', '', ''];
 	$scope.turn = 0;
 	$scope.play = true;
 	$scope.p1score = 0;
@@ -21,48 +21,36 @@ function TicTacToeCtrl ($scope) {
 				$scope.nextPlayer = $scope.player1 + ' is next!';
 			}
 			$scope.checkWin();
-		};
+		}
 	};
 
 	$scope.checkWin = function() {
-		if (($scope.cells[0] =='X' && $scope.cells[1]=='X' && $scope.cells[2] =='X') ||
-			($scope.cells[3] =='X' && $scope.cells[4]=='X' && $scope.cells[5] =='X') ||
-			($scope.cells[6] =='X' && $scope.cells[7]=='X' && $scope.cells[8] =='X') ||
-			($scope.cells[0] =='X' && $scope.cells[3]=='X' && $scope.cells[6] =='X') ||
-			($scope.cells[1] =='X' && $scope.cells[4]=='X' && $scope.cells[7] =='X') ||
-			($scope.cells[2] =='X' && $scope.cells[5]=='X' && $scope.cells[8] =='X') ||
-			($scope.cells[0] =='X' && $scope.cells[4]=='X' && $scope.cells[8] =='X') ||
-			($scope.cells[2] =='X' && $scope.cells[4]=='X' && $scope.cells[6] =='X'))
-		{
-			$scope.winner = $scope.player1 + ' wins in ' + $scope.turn + ' moves!';
-			$scope.nextPlayer = '';
-			$scope.p1score++;
-			$scope.play = false;
-		}
-		else if (($scope.cells[0] =='O' && $scope.cells[1]=='O' && $scope.cells[2] =='O') ||
-			($scope.cells[3] =='O' && $scope.cells[4]=='O' && $scope.cells[5] =='O') ||
-			($scope.cells[6] =='O' && $scope.cells[7]=='O' && $scope.cells[8] =='O') ||
-			($scope.cells[0] =='O' && $scope.cells[3]=='O' && $scope.cells[6] =='O') ||
-			($scope.cells[1] =='O' && $scope.cells[4]=='O' && $scope.cells[7] =='O') ||
-			($scope.cells[2] =='O' && $scope.cells[5]=='O' && $scope.cells[8] =='O') ||
-			($scope.cells[0] =='O' && $scope.cells[4]=='O' && $scope.cells[8] =='O') ||
-			($scope.cells[2] =='O' && $scope.cells[4]=='O' && $scope.cells[6] =='O'))
-		{
-			$scope.winner = $scope.player2 +' wins in ' + $scope.turn + ' moves!';
-			$scope.nextPlayer = '';
-			$scope.p2score++;
-			$scope.play = false;
-		}
-		else if ($scope.turn == 9) {
-			$scope.winner = 'Draw!';
-			$scope.nextPlayer = '';
-			$scope.ties++;
-			$scope.play = false;
-		}
+		$scope.winArray = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+		for (var i = 0; i < $scope.winArray.length; i++) {
+			if (($scope.cells[$scope.winArray[i][0]] == 'X' && $scope.cells[$scope.winArray[i][1]] == 'X' && $scope.cells[$scope.winArray[i][2]] == 'X')) {
+				$scope.winner = $scope.player1 + ' wins in ' + $scope.turn + ' moves!';
+				$scope.play = false;
+				$scope.nextPlayer = '';
+				$scope.p1score++;
+
+			}
+			else if (($scope.cells[$scope.winArray[i][0]] == 'O' && $scope.cells[$scope.winArray[i][1]] == 'O' && $scope.cells[$scope.winArray[i][2]] == 'O')) {
+				$scope.winner = $scope.player2 +' wins in ' + $scope.turn + ' moves!';
+				$scope.nextPlayer = '';
+				$scope.p2score++;
+				$scope.play = false;
+			}
+			else if ($scope.turn == 9) {
+				$scope.winner = 'Draw!';
+				$scope.nextPlayer = '';
+				$scope.ties++;
+				$scope.play = false;
+			}
+		};
 	};
 
 	$scope.resetBoard = function() {
-		$scope.cells = ['','','','','','','','',''];
+		$scope.cells = ['', '', '', '', '', '', '', '', ''];
 		$scope.turn = 0;
 		$scope.play = true;
 		$scope.nextPlayer = $scope.player1 + ' is next!';
@@ -77,12 +65,12 @@ function TicTacToeCtrl ($scope) {
 		$scope.player2 = '';
 	};
 
-	$scope.changeStyle = function (){
+	$scope.changeStyle = function () {
 		if ($scope.stylePath == 'style.css') {
 			$scope.stylePath = 'style2.css';
 		}
 		else {
 			$scope.stylePath = 'style.css';
 		}
-	}
+	};
 };
