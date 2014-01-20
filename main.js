@@ -70,4 +70,4 @@ function TicTacToeCtrl($scope) {
 			$scope.stylePath = 'style.css';
 		}
 	};
-};
+}
