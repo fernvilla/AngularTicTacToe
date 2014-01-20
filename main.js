@@ -1,12 +1,15 @@
 function TicTacToeCtrl($scope) {
-	$scope.cells = ['', '', '', '', '', '', '', '', ''];
-	$scope.turns = 0;
-	$scope.play = true;
-	$scope.p1score = 0;
-	$scope.p2score = 0;
-	$scope.ties = 0;
-	$scope.nextPlayer = $scope.player1 + ' is next!';
 	$scope.stylePath = 'style.css';
+
+	$scope.startGame = function(){
+		$scope.cells = ['', '', '', '', '', '', '', '', ''];
+		$scope.turns = 0;
+		$scope.play = true;
+		$scope.p1score = 0;
+		$scope.p2score = 0;
+		$scope.ties = 0;
+		$scope.nextPlayer = $scope.player1 + ' is next!';
+	}
 
 	$scope.nextMove = function(x) {
 		if ($scope.play) {	
