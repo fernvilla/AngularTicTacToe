@@ -12,12 +12,11 @@
 
 		<div id ="board">
 			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
-
 			<button id="reset" x-ng-click="resetBoard()">Reset Board</button>	
 			<button id="change" x-ng-click="changeStyle()">Change Board</button>
 		</div>	
 		
-		<div style="clear:both;"></div>
+		
 
 		<div id ="aside">
 			<h1>Tic Tac Toe</h1>
