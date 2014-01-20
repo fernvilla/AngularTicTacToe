@@ -5,6 +5,8 @@ body {
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: 100%;
+    margin: 0;
+    height: 100%;
 }
 
 h1 {
@@ -120,32 +122,80 @@ button {
     margin: 25px;
 }
 
+
 @media screen and (max-width: 800px) {
     #board {
-        height: 375px;
-        width: 375px;
+        height: 300px;
+        width: 300px;
     }
 
     .cell {
-        width: 119px;
-        height: 119px;
-        font-size: 110px;
+        width: 94px;
+        height: 94px;
+        font-size: 80px;
     }
 
     h2 {
-        font-size: 18px;
-        width: 150px;  
+        font-size: 16px;
+        width: 120px;  
     }
 
     button {
-        height: 22px;
-        width: 100px;
+        height: 20px;
+        width: 80px;
         font-size: 10px;
     }   
 
     #aside * {
+
         display: none;
     }
+
+    h1 {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    #board {
+        height: 360px;
+        width: 360px;
+    }
+
+    .cell {
+        width: 114px;
+        height: 114px;
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 16px;
+        width: 120px;  
+    }
+
+    h1 {
+        font-size: 25px;
+        width: 150px;
+    }
+    #aside {
+        position: absolute;
+        padding: 0px 40px;
+        top: 40px;
+        left: 50px;
+        font-size: 20px;
+        text-align: center;
+}
+
+    table, th {
+        width: 120px;
+    }
+
+    button {
+        height: 20px;
+        width: 80px;
+        font-size: 10px;
+    }   
 
 }
 
