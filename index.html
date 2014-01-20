@@ -9,8 +9,9 @@
 
 	<body x-ng-init="nextPlayer='Player 1 Begin!'"> 
 		<aside>
+			<h1>Tic Tac Toe</h1>
 			<h2 id="vs">{{player1}} vs. {{player2}}</h2>
-			<h2>{{nextPlayer}}{{winner}}</h2>
+			
 	        <table>
                 <tr>
                     <th>PLAYER SCORES</th>
@@ -25,18 +26,18 @@
                     <td>Ties: &nbsp; {{ties}}</td>
                 </tr>
 	        </table>
+
 	        <br />
 	        <button x-ng-click="clearTotals()">Clear Totals</button>
 	    </aside>
 
-		<h1>Tic Tac Toe</h1>
-		
+		<h2>{{nextPlayer}}{{winner}}</h2>
 		<div id ="board">
 			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
 		<div>	
 
 		<br />
-		<button id="reset" x-ng-click="resetBoard()">Restart</button>	
+		<button id="reset" x-ng-click="resetBoard()">Reset</button>	
 		<button id="change" x-ng-click="changeStyle()">Change Board</button>
 	</body>
 </html>

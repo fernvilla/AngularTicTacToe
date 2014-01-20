@@ -8,23 +8,22 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 32px;
     background-color: none;
-    width: 200px;
-    margin: 27px auto;
-    padding: 2px;
+    width: 190px;
+    padding: 4px;
     box-shadow: 5px 5px 2px #000000;
     border: 2px outset #30bbf4;
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 20px;
     width: 190px;
     padding: 4px;
     background-color: none;
     box-shadow: 5px 5px 2px #000000;
     border: 2px outset #30bbf4;
-    margin-bottom: 30px;
+    margin: 20px auto;
 }
 
 #vs {
@@ -34,7 +33,8 @@ h2 {
 aside {
     position: absolute;
     padding: 0px 100px;
-    top: 100px;
+    top: 40px;
+    left: 50px;
     font-size: 20px;
     text-align: center;
 }
@@ -46,7 +46,7 @@ table {
 table, th {
     border: 1px solid #30bbf4;
     background-color: none;  
-    width: 200px; 
+    width: 202px; 
     font-size: 15px;
     text-align: center;
 }
