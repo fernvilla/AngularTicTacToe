@@ -1,14 +1,32 @@
 function TicTacToeCtrl($scope) {
 	$scope.stylePath = 'style.css';
 
-	$scope.startGame = function(){
-		$scope.cells = ['', '', '', '', '', '', '', '', ''];
-		$scope.turns = 0;
-		$scope.play = true;
-		$scope.p1score = 0;
-		$scope.p2score = 0;
-		$scope.ties = 0;
-		$scope.nextPlayer = $scope.player1 + ' is next!';
+	$scope.startGame = function() {
+		if ($scope.player2 == null) {
+			if ($scope.player1 == null) {
+				alert('Please enter player 1 name!');
+			}
+			else {
+				alert('Please enter player 2 name!');
+			}
+		}
+		else if ($scope.player1 == null) {
+			if ($scope.player2 == null){
+				alert('Please enter player 2 name!');
+			}
+			else {
+				alert('Please enter player 1 name!');
+			}
+		}
+		else {
+			$scope.play = true;
+			$scope.cells = ['', '', '', '', '', '', '', '', ''];
+			$scope.turns = 0;
+			$scope.p1score = 0;
+			$scope.p2score = 0;
+			$scope.ties = 0;
+			$scope.nextPlayer = $scope.player1 + ' is next!';
+		}	
 	}
 
 	$scope.nextMove = function(x) {
