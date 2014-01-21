@@ -22,7 +22,6 @@ function TicTacToeCtrl($scope) {
 			}
 		}
 		else {
-
 			$scope.play = true;
 			$scope.cells = ['', '', '', '', '', '', '', '', ''];
 			$scope.turns = 0;
