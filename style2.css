@@ -26,6 +26,10 @@ h2 {
     margin: 20px auto;
 }
 
+#outcome {
+    margin-top: 50px;
+}
+
 #vs {
     background-color: #000000;
 }
@@ -33,7 +37,7 @@ h2 {
 #aside {
     position: absolute;
     padding: 0px 100px;
-    top: 40px;
+    top: 30px;
     left: 50px;
     font-size: 20px;
     text-align: center;

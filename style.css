@@ -28,10 +28,14 @@ h2 {
     margin: 20px auto;
 }
 
+#outcome {
+    margin-top: 50px;
+}
+
 #aside {
     position: absolute;
     padding: 0px 100px;
-    top: 40px;
+    top: 30px;
     left: 50px;
     font-size: 20px;
     text-align: center;

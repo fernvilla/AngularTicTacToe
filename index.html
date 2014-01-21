@@ -7,17 +7,15 @@
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 
-	<body x-ng-init="nextPlayer='Click to Start'"> 
-		<h2 id="outcome" x-ng-click="startGame()">{{nextPlayer}}{{winner}}</h2>
+	<body x-ng-init="nextPlayer='Enter Player Names'"> 
+		<h2 id="outcome">{{nextPlayer}}{{winner}}</h2>
 
 		<div id ="board">
 			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
-			<button id="reset" x-ng-click="resetBoard()">Reset Board</button>	
+			<button id="reset" x-ng-click="startGame()">Start/Restart</button>	
 			<button id="change" x-ng-click="changeStyle()">Change Board</button>
 		</div>	
 		
-		
-
 		<div id ="aside">
 			<h1>Tic Tac Toe</h1>
 			<h2 id="vs">{{player1}} vs. {{player2}}</h2>

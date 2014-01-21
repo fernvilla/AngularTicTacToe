@@ -1,5 +1,8 @@
 function TicTacToeCtrl($scope) {
 	$scope.stylePath = 'style.css';
+	$scope.p1score = 0;
+	$scope.p2score = 0;
+	$scope.ties = 0;
 
 	$scope.startGame = function() {
 		if ($scope.player2 == null) {
@@ -11,7 +14,7 @@ function TicTacToeCtrl($scope) {
 			}
 		}
 		else if ($scope.player1 == null) {
-			if ($scope.player2 == null){
+			if ($scope.player2 == null) {
 				alert('Please enter player 2 name in scoreboard!');
 			}
 			else {
@@ -19,12 +22,11 @@ function TicTacToeCtrl($scope) {
 			}
 		}
 		else {
+
 			$scope.play = true;
 			$scope.cells = ['', '', '', '', '', '', '', '', ''];
 			$scope.turns = 0;
-			$scope.p1score = 0;
-			$scope.p2score = 0;
-			$scope.ties = 0;
+			$scope.winner = '';
 			$scope.nextPlayer = $scope.player1 + ' is next!';
 		}	
 	};
@@ -67,14 +69,6 @@ function TicTacToeCtrl($scope) {
 				$scope.ties++;
 				$scope.play = false;
 			}
-	};
-
-	$scope.resetBoard = function() {
-		$scope.cells = ['', '', '', '', '', '', '', '', ''];
-		$scope.turns = 0;
-		$scope.play = true;
-		$scope.nextPlayer = $scope.player1 + ' is next!';
-		$scope.winner = '';
 	};
 
 	$scope.clearTotals = function() {
