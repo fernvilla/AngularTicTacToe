@@ -1,4 +1,8 @@
-function TicTacToeCtrl($scope) {
+
+angular.module('TicTacToe', ["firebase"])
+.controller('TicTacToeCtrl', function($scope, $firebase) {
+	var ticTacRef = new Firebase("https://fvtictactoe.firebaseio.com/");
+	
 	$scope.stylePath = 'style.css';
 	$scope.p1score = 0;
 	$scope.p2score = 0;
@@ -84,4 +88,4 @@ function TicTacToeCtrl($scope) {
 			$scope.stylePath = 'style.css';
 		}
 	};
-}
+});
