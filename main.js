@@ -8,7 +8,7 @@ angular.module('TicTacToe', ["firebase"])
  	$scope.fbRoot.$on("loaded", function() {
 		IDs = $scope.fbRoot.$getIndex();
 		if(IDs.length == 0) {
-	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is next!', player1: 'X', player2: 'O'} );
+	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is first!', player1: 'X', player2: 'O'} );
 			$scope.fbRoot.$on("change", function() {
 				IDs = $scope.fbRoot.$getIndex();
 				$scope.obj = $scope.fbRoot.$child(IDs[0]);
@@ -37,19 +37,19 @@ angular.module('TicTacToe', ["firebase"])
         }
     };
 
-    checkWin = function() {
-    	var x = $scope.obj.cells;
+    function checkWin() {
+    	var cell = $scope.obj.cells;
        	var win = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 
         for (var i = 0; i < win.length; i++) {
-            if ((x[win[i][0]] == 'X' && x[win[i][1]] == 'X' && x[win[i][2]] == 'X')) {
+            if ((cell[win[i][0]] == 'X' && cell[win[i][1]] == 'X' && cell[win[i][2]] == 'X')) {
                 $scope.obj.winner = $scope.obj.player1 + ' wins in ' + $scope.obj.turns + ' moves!';
                 $scope.obj.play = false;
                 $scope.obj.nextPlayer = '';
                 $scope.obj.p1score++;
                 $scope.obj.$save();
             }
-            else if ((x[win[i][0]] == 'O' && x[win[i][1]] == 'O' && x[win[i][2]] == 'O')) {
+            else if ((cell[win[i][0]] == 'O' && cell[win[i][1]] == 'O' && cell[win[i][2]] == 'O')) {
                 $scope.obj.winner = $scope.obj.player2 +' wins in ' + $scope.obj.turns + ' moves!';
                 $scope.obj.nextPlayer = '';
                 $scope.obj.p2score++;
@@ -65,10 +65,10 @@ angular.module('TicTacToe', ["firebase"])
             $scope.obj.play = false;
             $scope.obj.$save();
         }
-    };
+    }
 
     $scope.resetGame = function() {
-    	$scope.obj.$set( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is next!', player1: 'X', player2: 'O'} );
+    	$scope.obj.$set( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is first!', player1: 'X', player2: 'O'} );
     };
 
     $scope.clearTotals = function() {
