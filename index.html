@@ -10,7 +10,7 @@
 	</head>
 
 	<body> 
-		<h2 id="outcome">{{obj.nextPlayer}}{{obj.winner}}</h2>
+		<h2>{{obj.nextPlayer}}{{obj.winner}}</h2>
 
 		<div id ="board">
 			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">
