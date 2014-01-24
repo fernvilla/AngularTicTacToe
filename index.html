@@ -13,7 +13,7 @@
 		<h2 id="outcome">{{nextPlayer}}{{winner}}</h2>
 
 		<div id ="board">
-			<div x-ng-repeat="cell in cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
+			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
 			<button id="reset" x-ng-click="startGame()">Start/Restart</button>	
 			<button id="change" x-ng-click="changeStyle()">Change Board</button>
 		</div>	
@@ -27,13 +27,13 @@
                     <th>PLAYER SCORES</th>
                 </tr>
                 <tr>
-                    <td><input type="text" x-ng-model="player1" size="20" placeholder="Enter Player 1">: &nbsp; {{p1score}}</td>
+                    <td><input type="text" x-ng-model="player1" size="20" placeholder="Enter Player 1">: &nbsp; {{obj.p1score}}</td>
                 </tr>
                 <tr>
-                    <td><input type="text" x-ng-model="player2" size="20" placeholder="Enter Player 2">: &nbsp; {{p2score}}</td>
+                    <td><input type="text" x-ng-model="player2" size="20" placeholder="Enter Player 2">: &nbsp; {{obj.p2score}}</td>
                 </tr>
                 <tr>
-                    <td>Ties: &nbsp; {{ties}}</td>
+                    <td>Ties: &nbsp; {{obj.ties}}</td>
                 </tr>
 	        </table>
 

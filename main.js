@@ -1,11 +1,32 @@
+var ticTacRef;
+var IDs;
 angular.module('TicTacToe', ["firebase"])
 .controller('TicTacToeCtrl', function($scope, $firebase) {
-    var ticTacRef = new Firebase("https://fvtictactoe.firebaseio.com/");
-    
+    ticTacRef = new Firebase("https://fvtictactoe.firebaseio.com/");
+ 	$scope.fbRoot = $firebase(ticTacRef);
+
+ 	// Wait until everything really is loaded
+ 	$scope.fbRoot.$on("loaded", function() {
+		IDs = $scope.fbRoot.$getIndex();
+		if(IDs.length == 0)
+		{
+			// What???  No Board????  Let's build one.
+	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play:true, turns:0, p1score:0, p2score:0, ties:0} );
+			$scope.fbRoot.$on("change", function() {
+				IDs = $scope.fbRoot.$getIndex();
+				$scope.obj = $scope.fbRoot.$child(IDs[0]);
+			});
+		}
+		else
+		{
+			$scope.obj = $scope.fbRoot.$child(IDs[0]);
+		}
+	});
+
     $scope.stylePath = 'style.css';
-    $scope.p1score = 0;
-    $scope.p2score = 0;
-    $scope.ties = 0;
+    // $scope.p1score = 0;
+    // $scope.p2score = 0;
+    // $scope.ties = 0;
 
     // $scope.startGame = function() {
     //     if ($scope.player2 == null) {
@@ -25,25 +46,27 @@ angular.module('TicTacToe', ["firebase"])
     //         }
     //     }
     //     else {
-            $scope.play = true;
-            $scope.cells = ['', '', '', '', '', '', '', '', ''];
-            $scope.turns = 0;
+            //$scope.play = true;
+            //$scope.cells = ['', '', '', '', '', '', '', '', ''];
+            //$scope.turns = 0;
             $scope.winner = '';
             $scope.nextPlayer = $scope.player1 + ' is next!';
     //     }        
     // };
 
     $scope.nextMove = function(x) {
-        if ($scope.play) {        
-            if ($scope.turns % 2 == 0 && $scope.cells[x] == '') {
-                $scope.cells[x] = 'X';
-                $scope.turns++;
+        if ($scope.obj.play) {        
+            if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
+                $scope.obj.cells[x] = 'X';
+                $scope.obj.turns++;
                 $scope.nextPlayer = $scope.player2 + ' is next!';
+                $scope.obj.$save();
             }
-            else if ($scope.cells[x] == '') {
-             	$scope.cells[x] = 'O';
-                $scope.turns++;
+            else if ($scope.obj.cells[x] == '') {
+             	$scope.obj.cells[x] = 'O';
+                $scope.obj.turns++;
                 $scope.nextPlayer = $scope.player1 + ' is next!';
+                $scope.obj.$save();
             }
             $scope.checkWin();
         }
@@ -52,24 +75,27 @@ angular.module('TicTacToe', ["firebase"])
     $scope.checkWin = function() {
         $scope.winArray = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
         for (var i = 0; i < $scope.winArray.length; i++) {
-            if (($scope.cells[$scope.winArray[i][0]] == 'X' && $scope.cells[$scope.winArray[i][1]] == 'X' && $scope.cells[$scope.winArray[i][2]] == 'X')) {
-                $scope.winner = $scope.player1 + ' wins in ' + $scope.turns + ' moves!';
-                $scope.play = false;
+            if (($scope.obj.cells[$scope.winArray[i][0]] == 'X' && $scope.obj.cells[$scope.winArray[i][1]] == 'X' && $scope.obj.cells[$scope.winArray[i][2]] == 'X')) {
+                $scope.winner = $scope.player1 + ' wins in ' + $scope.obj.turns + ' moves!';
+                $scope.obj.play = false;
                 $scope.nextPlayer = '';
-                $scope.p1score++;
+                $scope.obj.p1score++;
+                $scope.obj.$save();
             }
-            else if (($scope.cells[$scope.winArray[i][0]] == 'O' && $scope.cells[$scope.winArray[i][1]] == 'O' && $scope.cells[$scope.winArray[i][2]] == 'O')) {
-                $scope.winner = $scope.player2 +' wins in ' + $scope.turns + ' moves!';
+            else if (($scope.obj.cells[$scope.winArray[i][0]] == 'O' && $scope.obj.cells[$scope.winArray[i][1]] == 'O' && $scope.obj.cells[$scope.winArray[i][2]] == 'O')) {
+                $scope.winner = $scope.player2 +' wins in ' + $scope.obj.turns + ' moves!';
                 $scope.nextPlayer = '';
-                $scope.p2score++;
-                $scope.play = false;
+                $scope.obj.p2score++;
+                $scope.obj.play = false;
+                $scope.obj.$save();
             }
         }
-        if ($scope.play && $scope.turns == 9) {
+        if ($scope.obj.play && $scope.obj.turns == 9) {
             $scope.winner = 'Draw!';
             $scope.nextPlayer = '';
-            $scope.ties++;
-            $scope.play = false;
+            $scope.obj.ties++;
+            $scope.obj.play = false;
+            $scope.obj.$save();
         }
     };
 
