@@ -22,13 +22,13 @@ angular.module('TicTacToe', ["firebase"])
     $scope.nextMove = function(x) {
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
-                $scope.obj.cells[x] = 'X';
+                $scope.obj.cells[x] = $scope.obj.player1;
                 $scope.obj.turns++;
                 $scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
                 $scope.obj.$save();
             }
             else if ($scope.obj.cells[x] == '') {
-             	$scope.obj.cells[x] = 'O';
+             	$scope.obj.cells[x] = $scope.obj.player2;
                 $scope.obj.turns++;
                 $scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
                 $scope.obj.$save();
