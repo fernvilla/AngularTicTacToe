@@ -11,7 +11,7 @@ angular.module('TicTacToe', ["firebase"])
 		if(IDs.length == 0)
 		{
 			// What???  No Board????  Let's build one.
-	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play:true, turns:0, p1score:0, p2score:0, ties:0} );
+	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play:true, turns:0, p1score:0, p2score:0, ties:0, winner:'', nextPlayer:'', player1:'X', player2:'O'} );
 			$scope.fbRoot.$on("change", function() {
 				IDs = $scope.fbRoot.$getIndex();
 				$scope.obj = $scope.fbRoot.$child(IDs[0]);
@@ -49,8 +49,8 @@ angular.module('TicTacToe', ["firebase"])
             //$scope.play = true;
             //$scope.cells = ['', '', '', '', '', '', '', '', ''];
             //$scope.turns = 0;
-            $scope.winner = '';
-            $scope.nextPlayer = $scope.player1 + ' is next!';
+            //$scope.winner = '';
+            //$scope.nextPlayer = $scope.player1 + ' is next!';
     //     }        
     // };
 
@@ -59,13 +59,13 @@ angular.module('TicTacToe', ["firebase"])
             if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
                 $scope.obj.cells[x] = 'X';
                 $scope.obj.turns++;
-                $scope.nextPlayer = $scope.player2 + ' is next!';
+                $scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
                 $scope.obj.$save();
             }
             else if ($scope.obj.cells[x] == '') {
              	$scope.obj.cells[x] = 'O';
                 $scope.obj.turns++;
-                $scope.nextPlayer = $scope.player1 + ' is next!';
+                $scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
                 $scope.obj.$save();
             }
             $scope.checkWin();
@@ -73,26 +73,26 @@ angular.module('TicTacToe', ["firebase"])
     };
 
     $scope.checkWin = function() {
-        $scope.winArray = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
-        for (var i = 0; i < $scope.winArray.length; i++) {
-            if (($scope.obj.cells[$scope.winArray[i][0]] == 'X' && $scope.obj.cells[$scope.winArray[i][1]] == 'X' && $scope.obj.cells[$scope.winArray[i][2]] == 'X')) {
-                $scope.winner = $scope.player1 + ' wins in ' + $scope.obj.turns + ' moves!';
+        var y = $scope.winArray = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+        for (var i = 0; i < y.length; i++) {
+            if (($scope.obj.cells[y[i][0]] == 'X' && $scope.obj.cells[y[i][1]] == 'X' && $scope.obj.cells[y[i][2]] == 'X')) {
+                $scope.obj.winner = $scope.obj.player1 + ' wins in ' + $scope.obj.turns + ' moves!';
                 $scope.obj.play = false;
-                $scope.nextPlayer = '';
+                $scope.obj.nextPlayer = '';
                 $scope.obj.p1score++;
                 $scope.obj.$save();
             }
-            else if (($scope.obj.cells[$scope.winArray[i][0]] == 'O' && $scope.obj.cells[$scope.winArray[i][1]] == 'O' && $scope.obj.cells[$scope.winArray[i][2]] == 'O')) {
-                $scope.winner = $scope.player2 +' wins in ' + $scope.obj.turns + ' moves!';
-                $scope.nextPlayer = '';
+            else if (($scope.obj.cells[y[i][0]] == 'O' && $scope.obj.cells[y[i][1]] == 'O' && $scope.obj.cells[y[i][2]] == 'O')) {
+                $scope.obj.winner = $scope.obj.player2 +' wins in ' + $scope.obj.turns + ' moves!';
+                $scope.obj.nextPlayer = '';
                 $scope.obj.p2score++;
                 $scope.obj.play = false;
                 $scope.obj.$save();
             }
         }
         if ($scope.obj.play && $scope.obj.turns == 9) {
-            $scope.winner = 'Draw!';
-            $scope.nextPlayer = '';
+            $scope.obj.winner = 'Draw!';
+            $scope.obj.nextPlayer = '';
             $scope.obj.ties++;
             $scope.obj.play = false;
             $scope.obj.$save();
@@ -100,9 +100,10 @@ angular.module('TicTacToe', ["firebase"])
     };
 
     $scope.clearTotals = function() {
-        $scope.p1score = 0;
-        $scope.p2score = 0;
-        $scope.ties = 0;
+        $scope.obj.p1score = 0;
+        $scope.obj.p2score = 0;
+        $scope.obj.ties = 0;
+        $scope.obj.$save;
     };
 
     $scope.changeStyle = function () {

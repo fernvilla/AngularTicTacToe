@@ -9,8 +9,8 @@
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 
-	<body x-ng-init="nextPlayer='Enter player names in scoreboard and click start!'"> 
-		<h2 id="outcome">{{nextPlayer}}{{winner}}</h2>
+	<body x-ng-init="obj.nextPlayer='Enter player names in scoreboard and click start!'"> 
+		<h2 id="outcome">{{obj.nextPlayer}}{{obj.winner}}</h2>
 
 		<div id ="board">
 			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
@@ -20,7 +20,7 @@
 		
 		<div id ="aside">
 			<h1>Tic Tac Toe</h1>
-			<h2 id="vs">{{player1}} vs. {{player2}}</h2>
+			<h2 id="vs">{{obj.player1}} vs. {{obj.player2}}</h2>
 			
 	        <table>
                 <tr>
