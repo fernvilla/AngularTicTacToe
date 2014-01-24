@@ -13,7 +13,9 @@
 		<h2 id="outcome">{{obj.nextPlayer}}{{obj.winner}}</h2>
 
 		<div id ="board">
-			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index); ">{{cell}}</div>
+			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">
+				{{cell}}
+			</div>
 			<button id="reset" x-ng-click="resetGame()">Restart</button>	
 			<button id="change" x-ng-click="changeStyle()">Change Board</button>
 		</div>	
