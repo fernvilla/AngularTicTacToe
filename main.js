@@ -8,7 +8,18 @@ angular.module('TicTacToe', ["firebase"])
  	$scope.fbRoot.$on("loaded", function() {
 		IDs = $scope.fbRoot.$getIndex();
 		if(IDs.length == 0) {
-	 		$scope.fbRoot.$add( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is first!', player1: 'X', player2: 'O'} );
+	 		$scope.fbRoot.$add({ 
+	 			cells:['','','','','','','','',''], 
+	 			play: true, 
+	 			turns: 0, 
+	 			p1score: 0, 
+	 			p2score: 0, 
+	 			ties: 0, 
+	 			winner: '', 
+	 			nextPlayer: 'X is first!', 
+	 			player1: 'X', 
+	 			player2: 'O'
+	 		});
 			$scope.fbRoot.$on("change", function() {
 				IDs = $scope.fbRoot.$getIndex();
 				$scope.obj = $scope.fbRoot.$child(IDs[0]);
@@ -65,10 +76,21 @@ angular.module('TicTacToe', ["firebase"])
             $scope.obj.play = false;
             $scope.obj.$save();
         }
-    }
+    };
 
     $scope.resetGame = function() {
-    	$scope.obj.$set( { cells:['','','','','','','','',''], play: true, turns: 0, p1score: 0, p2score: 0, ties: 0, winner: '', nextPlayer: 'X is first!', player1: 'X', player2: 'O'} );
+    	$scope.obj.$set({ 
+    		cells:['','','','','','','','',''], 
+    		play: true, 
+    		turns: 0, 
+    		p1score: 0, 
+    		p2score: 0, 
+    		ties: 0, 
+    		winner: '', 
+    		nextPlayer: 'X is first!', 
+    		player1: 'X', 
+    		player2: 'O'
+    	});
     };
 
     $scope.clearTotals = function() {
