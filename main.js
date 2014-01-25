@@ -31,6 +31,13 @@ angular.module('TicTacToe', ["firebase"])
 	});
 
     $scope.nextMove = function(x) {
+
+//     	if(isCellEmpty(idx) && (itIsMyTurn() || currentSymbolUnused())) {
+
+    	if ($scope.obj.cells = '') {
+
+    	}
+
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
                 $scope.obj.cells[x] = $scope.obj.player1;

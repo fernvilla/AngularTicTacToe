@@ -120,7 +120,7 @@ button {
     margin: 25px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 910px) {
     #board {
         height: 300px;
         width: 300px;
@@ -148,7 +148,7 @@ button {
     }   
 }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
+@media screen and (min-width: 911px) and (max-width: 1200px) {
     #board {
         height: 360px;
         width: 360px;
@@ -157,7 +157,7 @@ button {
     .cell {
         width: 114px;
         height: 114px;
-        font-size: 80px;
+        font-size: 100px;
     }
 
     h2 {
