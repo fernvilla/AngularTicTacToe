@@ -16,9 +16,9 @@ angular.module('TicTacToe', ["firebase"])
 	 			p2score: 0, 
 	 			ties: 0, 
 	 			winner: '', 
-	 			nextPlayer: 'X is first!', 
-	 			player1: 'X', 
-	 			player2: 'O'
+	 			nextPlayer: 'Player 1, your move!', 
+	 			player1: '', 
+	 			player2: '',
 	 		});
 			$scope.fbRoot.$on("change", function() {
 				IDs = $scope.fbRoot.$getIndex();
@@ -31,22 +31,15 @@ angular.module('TicTacToe', ["firebase"])
 	});
 
     $scope.nextMove = function(x) {
-
-//     	if(isCellEmpty(idx) && (itIsMyTurn() || currentSymbolUnused())) {
-
-    	if ($scope.obj.cells = '') {
-
-    	}
-
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
-                $scope.obj.cells[x] = $scope.obj.player1;
+                $scope.obj.cells[x] = 'X';
                 $scope.obj.turns++;
                 $scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
                 $scope.obj.$save();
             }
             else if ($scope.obj.cells[x] == '') {
-             	$scope.obj.cells[x] = $scope.obj.player2;
+             	$scope.obj.cells[x] = 'O';
                 $scope.obj.turns++;
                 $scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
                 $scope.obj.$save();
@@ -90,13 +83,13 @@ angular.module('TicTacToe', ["firebase"])
     		cells:['','','','','','','','',''], 
     		play: true, 
     		turns: 0, 
-    		p1score: 0, 
-    		p2score: 0, 
-    		ties: 0, 
+    		p1score: $scope.obj.p1score, 
+    		p2score: $scope.obj.p2score, 
+    		ties: $scope.obj.ties, 
     		winner: '', 
-    		nextPlayer: 'X is first!', 
-    		player1: 'X', 
-    		player2: 'O'
+    		nextPlayer: $scope.obj.player1, 
+    		player1: $scope.obj.player1, 
+    		player2: $scope.obj.player2
     	});
     };
 
@@ -110,7 +103,7 @@ angular.module('TicTacToe', ["firebase"])
     $scope.stylePath = 'style.css'; //intial bind to index.html stylesheet link
 
     $scope.changeStyle = function () {
-        if ($scope.stylePath == 'style.css') {//make sure this is a comparison (==) statement
+        if ($scope.stylePath == 'style.css') {//make sure this line is a comparison (==) statement
             $scope.stylePath = 'style2.css';
         }
         else {
