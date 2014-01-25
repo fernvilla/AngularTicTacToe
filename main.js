@@ -17,8 +17,8 @@ angular.module('TicTacToe', ["firebase"])
 	 			ties: 0, 
 	 			winner: '', 
 	 			nextPlayer: 'Player 1, your move!', 
-	 			player1: '', 
-	 			player2: '',
+	 			player1: 'X', 
+	 			player2: 'O',
 	 		});
 			$scope.fbRoot.$on("change", function() {
 				IDs = $scope.fbRoot.$getIndex();
@@ -87,17 +87,25 @@ angular.module('TicTacToe', ["firebase"])
     		p2score: $scope.obj.p2score, 
     		ties: $scope.obj.ties, 
     		winner: '', 
-    		nextPlayer: $scope.obj.player1, 
+    		nextPlayer: $scope.obj.player1 + ', your move!', 
     		player1: $scope.obj.player1, 
     		player2: $scope.obj.player2
     	});
     };
 
     $scope.clearTotals = function() {
-        $scope.obj.$set({p1score: 0});
-        $scope.obj.$set({p2score: 0});
-        $scope.obj.$set({ties: 0});
-        $scope.obj.$save();
+        $scope.obj.$set({
+        	cells:['','','','','','','','',''], 
+    		play: true, 
+    		turns: 0, 
+        	p1score: 0,
+        	p2score: 0,
+        	ties:0,
+        	winner: '', 
+    		nextPlayer: $scope.obj.player1 + ', your move!', 
+    		player1: $scope.obj.player1, 
+    		player2: $scope.obj.player2
+        });
     };
 
     $scope.stylePath = 'style.css'; //intial bind to index.html stylesheet link
