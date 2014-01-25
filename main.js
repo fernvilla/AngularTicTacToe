@@ -103,7 +103,7 @@ angular.module('TicTacToe', ["firebase"])
     $scope.stylePath = 'style.css'; //intial bind to index.html stylesheet link
 
     $scope.changeStyle = function () {
-        if ($scope.stylePath == 'style.css') {//make sure this is a comparison (==)
+        if ($scope.stylePath == 'style.css') {//make sure this is a comparison (==) statement
             $scope.stylePath = 'style2.css';
         }
         else {
