@@ -28,13 +28,37 @@ h2 {
     margin: 20px auto;
 }
 
-#aside {
+#leftsidebar {
     position: absolute;
     padding: 0px 100px;
     top: 30px;
     left: 50px;
-    font-size: 20px;
     text-align: center;
+}
+
+#rightsidebar {
+    position: absolute;
+    right: 60px;
+    text-align: left;
+    background-color: #1b9ed4;
+    padding: 10px;
+    box-shadow: 5px 5px 2px #000000;
+    margin: 80px 0px;
+    border: 1px solid #FFFFFF;
+    font-size: 14px;
+    width: 290px;
+    height: 300px;
+}
+
+#chat {
+    height: 20px;
+    width: 60px;
+    box-shadow: none;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid #f3f1f4;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 table {
@@ -51,7 +75,6 @@ table, th {
 
 th {
     padding: 10px;
-    
 }
 
 td {
@@ -141,7 +164,7 @@ button {
         font-size: 10px;
     }   
 
-    #aside * {
+    #leftsidebar * {
         display: none;
     }   
 }
@@ -168,7 +191,7 @@ button {
         width: 140px;
     }
 
-    #aside {
+    #leftsidebar {
         position: absolute;
         top: 40px;
         left: 20px;

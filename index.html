@@ -10,17 +10,7 @@
 	</head>
 
 	<body> 
-		<h2>{{obj.nextPlayer}}{{obj.winner}}</h2>
-
-		<div id ="board">
-			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">
-				{{cell}}
-			</div>
-			<button id="reset" x-ng-click="resetGame()">Restart</button>	
-			<button id="change" x-ng-click="changeStyle()">Change Board</button>
-		</div>	
-		
-		<div id ="aside">
+		<div id ="leftsidebar">
 			<h1>Tic Tac Toe</h1>
 			<h2 id="vs">{{obj.player1}} vs. {{obj.player2}}</h2>
 			
@@ -42,5 +32,30 @@
 	        <br />
 	        <button x-ng-click="clearTotals()">Clear Totals</button>
 	    </div>
+
+		<div id="rightsidebar" x-ng-controller="ChatCtrl">
+			<div x-ng-repeat="message in messages">
+				{{message.from | uppercase}} {{message.content}}
+			</div>
+			<br/>
+			<form x-ng-submit="addMessage()">
+				<input type="text" size="12" x-ng-model="username" placeholder="Name">
+				<input type="text" size="20" x-ng-model="message" placeholder="Message...">
+				<button id="chat" type="submit">Send</button>
+			</form>			
+		</div>
+
+		<h2>{{obj.nextPlayer}}{{obj.winner}}</h2>
+
+		<div id ="board">
+			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">
+				{{cell}}
+			</div>
+			<button id="reset" x-ng-click="resetGame()">Restart</button>	
+			<button id="change" x-ng-click="changeStyle()">Change Board</button>
+		</div>	
+		
+
+
 	</body>
 </html>

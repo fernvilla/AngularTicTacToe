@@ -1,10 +1,9 @@
 var ticTacRef;
 var IDs;
-angular.module('TicTacToe', ["firebase"])
-.controller('TicTacToeCtrl', function($scope, $firebase) {
+var myApp = angular.module('TicTacToe', ["firebase"]);
+myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     ticTacRef = new Firebase("https://fvtictactoe.firebaseio.com/");
  	$scope.fbRoot = $firebase(ticTacRef);
-
  	$scope.fbRoot.$on("loaded", function() {
 		IDs = $scope.fbRoot.$getIndex();
 		if(IDs.length == 0) {
@@ -83,9 +82,9 @@ angular.module('TicTacToe', ["firebase"])
     		cells:['','','','','','','','',''], 
     		play: true, 
     		turns: 0, 
-    		p1score: $scope.obj.p1score, 
-    		p2score: $scope.obj.p2score, 
-    		ties: $scope.obj.ties, 
+    		p1score: $scope.obj.p1score, //
+    		p2score: $scope.obj.p2score, //
+    		ties: $scope.obj.ties, //
     		winner: '', 
     		nextPlayer: $scope.obj.player1 + ', your move!', 
     		player1: $scope.obj.player1, 
@@ -145,4 +144,18 @@ angular.module('TicTacToe', ["firebase"])
     //         $scope.nextPlayer = $scope.player1 + ' is next!';
     //     }        
     // };   
+});
+
+myApp.controller('ChatCtrl', function($scope, $firebase) {
+	var ref = new Firebase('https://fvtictactoe.firebaseio.com/');
+	$scope.messages = $firebase(ref.limit(15));
+  	$scope.username = '';
+
+  	$scope.addMessage = function() {
+	    $scope.messages.$add({
+	    	from: $scope.username+ ':', 
+	    	content: $scope.message 
+	    });
+	    $scope.message = "";
+  	}
 });

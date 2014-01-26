@@ -30,7 +30,7 @@ h2 {
     background-color: #000000;
 }
 
-#aside {
+#leftsidebar {
     position: absolute;
     padding: 0px 100px;
     top: 30px;
@@ -143,7 +143,7 @@ button {
         font-size: 10px;
     }   
 
-    #aside * {
+    #leftsidebar * {
         display: none;
     }   
 }
@@ -170,7 +170,7 @@ button {
         width: 140px;
     }
 
-    #aside {
+    #leftsidebar {
         position: absolute;
         top: 40px;
         left: 20px;
