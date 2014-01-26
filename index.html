@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html x-ng-app="TicTacToe" x-ng-controller="TicTacToeCtrl">
-	<head>
-		<title>Tic Tac Toe</title>
-		<link rel="stylesheet" type="text/css" href="{{stylePath}}">
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
-		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
-		<script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
-		<script type="text/javascript" src="main.js"></script>
-	</head>
-
-	<body> 
-		<div id ="leftsidebar">
-			<h1>Tic Tac Toe</h1>
-			<h2 id="vs">{{obj.player1}} vs. {{obj.player2}}</h2>
-			
-	        <table>
+    <head>
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" type="text/css" href="{{stylePath}}">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body>
+        <div id ="leftsidebar">
+            <h1>Tic Tac Toe</h1>
+            <h2 id="vs">{{obj.player1}} vs. {{obj.player2}}</h2>
+            <table>
                 <tr>
                     <th>PLAYER SCORES</th>
                 </tr>
@@ -27,32 +25,28 @@
                 <tr>
                     <td>Ties: &nbsp; {{obj.ties}}</td>
                 </tr>
-	        </table>
-
-	        <br />
-	        <button x-ng-click="clearTotals()">Clear Totals</button>
-	    </div>
-
-	    <h2>{{obj.nextPlayer}} {{obj.winner}}</h2>
-
-		<div id ="board">
-			<div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">
-				{{cell}}
-			</div>
-			<button id="reset" x-ng-click="resetGame()">Restart</button>	
-			<button id="change" x-ng-click="changeStyle()">Change Board</button>
-		</div>	
-
-		<div id="rightsidebar" x-ng-controller="ChatCtrl">
-			<div x-ng-repeat="message in messages">
-				{{message.from | uppercase}}  {{message.content}}
-			</div>
-			<br/>
-			<form x-ng-submit="addMessage()">
-				<input type="text" size="12" x-ng-model="username" placeholder="Name">
-				<input type="text" size="16" x-ng-model="message" placeholder="Message...">
-				<button id="chat" type="submit">Send</button>
-			</form>			
-		</div>
-	</body>
+            </table>
+            <br />
+            <button x-ng-click="clearTotals()">Clear Totals</button>
+        </div>
+        <h2>{{obj.nextPlayer}} {{obj.winner}}</h2>
+        <div id ="board">
+            <div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">{{cell}}</div>
+            <button id="reset" x-ng-click="resetGame()">Restart</button>	
+            <button id="change" x-ng-click="changeStyle()">Change Board</button>
+        </div>
+        <div id="rightsidebar" x-ng-controller="ChatCtrl">
+            <div x-ng-repeat="message in messages">{{message.from | uppercase}}  {{message.content}}</div>
+            <br/>
+            <form x-ng-submit="addMessage()">
+                <input type="text" size="12" x-ng-model="username" placeholder="Name">
+                <input type="text" size="16" x-ng-model="message" placeholder="Message">
+                <button id="chat" type="submit">Send</button>
+            </form>
+        </div>
+        <div id="bottomright">
+        	LAST 5 GAMES:<br /> <br />
+        	<div x-ng-repeat="log in logs">{{log.outcome}}</div>
+        </div>
+    </body>
 </html>
