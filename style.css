@@ -159,8 +159,7 @@ button {
         font-size: 10px;
     }   
 
-    #leftsidebar * {
-        display: none;
+    #leftsidebar * {display: none;
     }   
 }
 

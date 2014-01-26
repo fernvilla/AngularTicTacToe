@@ -32,16 +32,16 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     $scope.nextMove = function(x) {
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
-                $scope.obj.cells[x] = 'X';
-                $scope.obj.turns++;
-                $scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
-                $scope.obj.$save();
+				$scope.obj.cells[x] = 'X';
+				$scope.obj.turns++;
+				$scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
+				$scope.obj.$save();
             }
             else if ($scope.obj.cells[x] == '') {
-             	$scope.obj.cells[x] = 'O';
-                $scope.obj.turns++;
-                $scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
-                $scope.obj.$save();
+				$scope.obj.cells[x] = 'O';
+				$scope.obj.turns++;
+				$scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
+				$scope.obj.$save();
             }
             checkWin();
         }
@@ -79,31 +79,31 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 
     $scope.resetGame = function() {
     	$scope.obj.$set({ 
-    		cells:['','','','','','','','',''], 
-    		play: true, 
-    		turns: 0, 
-    		p1score: $scope.obj.p1score, //
-    		p2score: $scope.obj.p2score, //
-    		ties: $scope.obj.ties, //
-    		winner: '', 
-    		nextPlayer: $scope.obj.player1 + ', your move!', 
-    		player1: $scope.obj.player1, 
-    		player2: $scope.obj.player2
+			cells:['','','','','','','','',''], 
+			play: true, 
+			turns: 0, 
+			p1score: $scope.obj.p1score, //
+			p2score: $scope.obj.p2score, //
+			ties: $scope.obj.ties, //
+			winner: '', 
+			nextPlayer: $scope.obj.player1 + ', your move!', 
+			player1: $scope.obj.player1, 
+			player2: $scope.obj.player2
     	});
     };
 
     $scope.clearTotals = function() {
         $scope.obj.$set({
-        	cells:['','','','','','','','',''], 
-    		play: true, 
-    		turns: 0, 
-        	p1score: 0,
-        	p2score: 0,
-        	ties:0,
-        	winner: '', 
-    		nextPlayer: $scope.obj.player1 + ', your move!', 
-    		player1: $scope.obj.player1, 
-    		player2: $scope.obj.player2
+        	cells:['','','','','','','','',''],
+			play: true, 
+			turns: 0, 
+			p1score: 0,
+			p2score: 0,
+			ties:0,
+			winner: '', 
+			nextPlayer: $scope.obj.player1 + ', your move!', 
+			player1: $scope.obj.player1, 
+			player2: $scope.obj.player2
         });
     };
 
@@ -125,10 +125,10 @@ myApp.controller('ChatCtrl', function($scope, $firebase) {
   	$scope.username = '';
 
   	$scope.addMessage = function() {
-	    $scope.messages.$add({
-	    	from: $scope.username+ ':', 
-	    	content: $scope.message 
-	    });
-	    $scope.message = "";
+		$scope.messages.$add({
+			from: $scope.username+ ': ', 
+			content: $scope.message 
+		});
+		$scope.message = '';
   	}
 });

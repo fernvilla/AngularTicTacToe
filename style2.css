@@ -86,10 +86,9 @@ input {
     background-color: #000000;
     color: #FFFFFF;
     text-align: center;
-    border: none;
     font-size: 12px;
     font-weight: bold;
-    border: 1px inset #393d50;
+    border: 1px solid #393d50;
 }
 
 #board {
