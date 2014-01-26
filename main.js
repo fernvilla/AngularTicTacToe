@@ -1,5 +1,6 @@
 var ticTacRef;
 var IDs;
+var mySymbol;
 var myApp = angular.module('TicTacToe', ["firebase"]);
 myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     ticTacRef = new Firebase("https://fvtictactoe.firebaseio.com/");
@@ -31,14 +32,16 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 
     $scope.nextMove = function(x) {
         if ($scope.obj.play) {        
-            if ($scope.obj.turns % 2 == 0 && $scope.obj.cells[x] == '') {
-				$scope.obj.cells[x] = 'X';
+            if ($scope.obj.turns % 2 == 0 && ($scope.obj.cells[x] == '' && mySymbol != 'O')) {
+            	mySymbol = 'X';
+				$scope.obj.cells[x] = mySymbol;
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
 				$scope.obj.$save();
             }
-            else if ($scope.obj.cells[x] == '') {
-				$scope.obj.cells[x] = 'O';
+            else if ($scope.obj.turns % 2 == 1 && ($scope.obj.cells[x] == '' && mySymbol != 'X')) {
+            	mySymbol = 'O';
+				$scope.obj.cells[x] = mySymbol;
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
 				$scope.obj.$save();
@@ -78,18 +81,23 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     };
 
     $scope.resetGame = function() {
-    	$scope.obj.$set({ 
-			cells:['','','','','','','','',''], 
-			play: true, 
-			turns: 0, 
-			p1score: $scope.obj.p1score, //
-			p2score: $scope.obj.p2score, //
-			ties: $scope.obj.ties, //
-			winner: '', 
-			nextPlayer: $scope.obj.player1 + ', your move!', 
-			player1: $scope.obj.player1, 
-			player2: $scope.obj.player2
-    	});
+    	if (!$scope.obj.play) { //ensure that game isn't reset by opponent while in progress
+	    	$scope.obj.$set({ 
+				cells:['','','','','','','','',''], 
+				play: true, 
+				turns: 0, 
+				p1score: $scope.obj.p1score, //
+				p2score: $scope.obj.p2score, //
+				ties: $scope.obj.ties, //
+				winner: '', 
+				nextPlayer: $scope.obj.player1 + ', your move!', 
+				player1: $scope.obj.player1, 
+				player2: $scope.obj.player2
+	    	});
+    	}
+    	else {
+	    	alert("Game isn't over yet!");
+	    }
     };
 
     $scope.clearTotals = function() {
@@ -109,7 +117,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 
     $scope.stylePath = 'style.css'; //intial bind to index.html stylesheet link
 
-    $scope.changeStyle = function () {
+    $scope.changeStyle = function() {
         if ($scope.stylePath == 'style.css') {//make sure this line is a comparison (==) statement
             $scope.stylePath = 'style2.css';
         }
@@ -122,11 +130,10 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 myApp.controller('ChatCtrl', function($scope, $firebase) {
 	var ref = new Firebase('https://fvtictactoe.firebaseio.com/');
 	$scope.messages = $firebase(ref.limit(15));
-  	$scope.username = '';
 
   	$scope.addMessage = function() {
 		$scope.messages.$add({
-			from: $scope.username+ ': ', 
+			from: $scope.username + ': ', 
 			content: $scope.message 
 		});
 		$scope.message = '';

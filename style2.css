@@ -40,11 +40,12 @@ h2 {
 #rightsidebar {
     position: absolute;
     right: 90px;
+    top: 0;
     text-align: left;
     background-color: none;
     padding: 10px;
     box-shadow: 5px 5px 2px #000000;
-    margin: 62px 0px;
+    margin: 80px 0px;
     border: 2px outset #30bbf4;
     font-size: 15px;
     width: 265px;
