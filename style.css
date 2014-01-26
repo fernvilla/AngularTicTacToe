@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: Helvetica;
-    text-shadow: 3px 3px 2px #000000;
+    text-shadow: 2px 2px 1px #000000;
     color: #FFFFFF;
     background: url('bg2.jpg');
     background-size: 100%;
@@ -87,9 +87,8 @@ input {
     background-color: #000000;
     color: #FFFFFF;
     text-align: center;
-    border: none;
+    border: 1px solid #FFFFFF;
     font-size: 12px;
-    font-weight: bold;
     border: 1px inset #393d50;
 }
 

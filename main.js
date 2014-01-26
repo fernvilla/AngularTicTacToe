@@ -116,34 +116,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
         else {
             $scope.stylePath = 'style.css';
         }
-    };
-
-    // OLD START BUTTON FUNCTION
-    // $scope.startGame = function() {
-    //     if ($scope.player2 == null) {
-    //         if ($scope.player1 == null) {
-    //             alert('Please enter player 1 name in scoreboard!');
-    //         }
-    //         else {
-    //             alert('Please enter player 2 name in scoreboard!');
-    //         }
-    // 	}
-    //     else if ($scope.player1 == null) {
-    //         if ($scope.player2 == null) {
-    //             alert('Please enter player 2 name in scoreboard!');
-    //         }
-    //         else {
-    //             alert('Please enter player 1 name in scoreboard!');
-    //         }
-    //     }
-    //     else {
-    //         $scope.play = true;
-    //         $scope.cells = ['', '', '', '', '', '', '', '', ''];
-    //         $scope.turns = 0;
-    //         $scope.winner = '';
-    //         $scope.nextPlayer = $scope.player1 + ' is next!';
-    //     }        
-    // };   
+    };   
 });
 
 myApp.controller('ChatCtrl', function($scope, $firebase) {
