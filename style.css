@@ -72,7 +72,8 @@ h2 {
     width: 265px;
 }
 #log {
-    background-color: #000000;
+    background-color: #1e9c23;
+    margin: 0 auto;
     padding: 5px;
     border: 1px outset #f3f1f4;
     text-align: center;

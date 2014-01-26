@@ -75,9 +75,11 @@ h2 {
 
 #log {
     padding: 5px;
-    border: 1px outset #30bbf4;
+    background-color: #30bbf4;
+    border: 1px outset #f3f1f4;
     text-align: center;
     box-shadow: 2px 2px 1px #000000;
+    text-shadow: none;
 }
 
 table {
