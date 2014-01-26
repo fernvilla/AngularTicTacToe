@@ -33,7 +33,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     $scope.nextMove = function(x) {
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && ($scope.obj.cells[x] == '' && mySymbol != 'O')) {
-            	mySymbol = 'X';
+            	mySymbol = 'X'; 
 				$scope.obj.cells[x] = mySymbol;
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
