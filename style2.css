@@ -32,11 +32,31 @@ h2 {
 
 #leftsidebar {
     position: absolute;
-    padding: 0px 100px;
-    top: 30px;
+    margin: 40px 100px;
     left: 50px;
-    font-size: 20px;
     text-align: center;
+}
+
+#rightsidebar {
+    position: absolute;
+    right: 90px;
+    text-align: left;
+    background-color: none;
+    padding: 10px;
+    box-shadow: 5px 5px 2px #000000;
+    margin: 62px 0px;
+    border: 2px outset #30bbf4;
+    font-size: 15px;
+    width: 265px;
+}
+
+#chat {
+    height: 20px;
+    width: 60px;
+    box-shadow: none;
+    border: 1px solid #f3f1f4;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 table {

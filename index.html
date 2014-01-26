@@ -35,12 +35,12 @@
 
 		<div id="rightsidebar" x-ng-controller="ChatCtrl">
 			<div x-ng-repeat="message in messages">
-				{{message.from | uppercase}} {{message.content}}
+				{{message.from | uppercase}}  {{message.content}}
 			</div>
 			<br/>
 			<form x-ng-submit="addMessage()">
 				<input type="text" size="12" x-ng-model="username" placeholder="Name">
-				<input type="text" size="20" x-ng-model="message" placeholder="Message...">
+				<input type="text" size="16" x-ng-model="message" placeholder="Message...">
 				<button id="chat" type="submit">Send</button>
 			</form>			
 		</div>
