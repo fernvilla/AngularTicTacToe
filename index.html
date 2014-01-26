@@ -30,7 +30,7 @@
             <button x-ng-click="clearTotals()">Clear Totals</button>
         </div>
         <h2>{{obj.nextPlayer}} {{obj.winner}}</h2>
-        <div id ="board">
+        <div id="board">
             <div x-ng-repeat="cell in obj.cells track by $index" x-ng-class="{cell: true, clear: $index % 3 == 0}" x-ng-click="nextMove($index);">{{cell}}</div>
             <button id="reset" x-ng-click="resetGame()">Restart</button>	
             <button id="change" x-ng-click="changeStyle()">Change Board</button>
@@ -45,7 +45,7 @@
             </form>
         </div>
         <div id="bottomright">
-        	LAST 5 GAMES:<br /> <br />
+        	<span id="log">LAST 5 GAMES:</span><br /><br />
         	<div x-ng-repeat="log in logs">{{log.outcome}}</div>
         </div>
     </body>

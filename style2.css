@@ -60,6 +60,26 @@ h2 {
     cursor: pointer;
 }
 
+#bottomright {
+    position: absolute;
+    right: 90px;
+    top: 220px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 5px 5px 2px #000000;
+    margin: 82px 0px;
+    border: 2px outset #30bbf4;
+    font-size: 15px;
+    width: 265px;
+}
+
+#log {
+    padding: 5px;
+    border: 1px outset #30bbf4;
+    text-align: center;
+    box-shadow: 2px 2px 1px #000000;
+}
+
 table {
     box-shadow: 5px 5px 2px #000000;
 }

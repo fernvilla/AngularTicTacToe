@@ -49,6 +49,15 @@ h2 {
     width: 265px;
 }
 
+#chat {
+    height: 20px;
+    width: 60px;
+    box-shadow: none;
+    border: 1px solid #f3f1f4;
+    font-size: 11px;
+    cursor: pointer;
+}
+
 #bottomright {
     position: absolute;
     right: 90px;
@@ -62,14 +71,12 @@ h2 {
     font-size: 15px;
     width: 265px;
 }
-
-#chat {
-    height: 20px;
-    width: 60px;
-    box-shadow: none;
-    border: 1px solid #f3f1f4;
-    font-size: 11px;
-    cursor: pointer;
+#log {
+    background-color: #000000;
+    padding: 5px;
+    border: 1px outset #f3f1f4;
+    text-align: center;
+    box-shadow: 2px 2px 1px #000000;
 }
 
 table {
