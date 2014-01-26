@@ -38,6 +38,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
 				$scope.obj.$save();
+				checkWin();
             }
             else if ($scope.obj.turns % 2 == 1 && ($scope.obj.cells[x] == '' && mySymbol != 'X')) {
             	mySymbol = 'O';
@@ -45,8 +46,8 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
 				$scope.obj.$save();
+				checkWin();
             }
-            checkWin();
         }
     };
 
