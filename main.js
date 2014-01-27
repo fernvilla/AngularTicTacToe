@@ -87,7 +87,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 
     // Set new Firebase and create function to log outcomes.
     var logRef = new Firebase('https://fvtictactoe.firebaseio.com/');
-	$scope.logs = $firebase(logRef.limit(5)); 
+	$scope.logs = $firebase(logRef.limit(10)); 
     function logIt() {
     	$scope.logs.$add({
 			outcome: $scope.obj.winner 
