@@ -182,7 +182,8 @@ button {
         font-size: 10px;
     }   
 
-    #leftsidebar * {display: none;
+    #leftsidebar, #rightsidebar, #bottomright, #log * {
+        display: none;
     }   
 }
 
@@ -210,10 +211,60 @@ button {
 
     #leftsidebar {
         position: absolute;
-        top: 40px;
+        top: 20px;
         left: 20px;
         font-size: 20px;
         text-align: center;
+    }
+
+    #rightsidebar {
+        position: absolute;
+        right: 90px;
+        top: 0;
+        text-align: left;
+        background-color: #1b9ed4;
+        padding: 4px;
+        box-shadow: 5px 5px 2px #000000;
+        margin: 82px 0px;
+        border: 2px outset #f3f1f4;
+        font-size: 11px;
+        width: 160px;
+    }
+
+    #chat {
+        height: 20px;
+        width: 60px;
+        box-shadow: none;
+        border: 1px solid #f3f1f4;
+        font-size: 11px;
+        cursor: pointer;
+    }
+
+    #bottomright {
+        position: absolute;
+        right: 90px;
+        top: 220px;
+        text-align: center;
+        background-color: #1b9ed4;
+        padding: 10px;
+        box-shadow: 5px 5px 2px #000000;
+        margin: 82px 0px;
+        border: 2px outset #f3f1f4;
+        font-size: 11px;
+        width: 150px;
+    }
+
+    input {
+        font-size: 11px;
+    }
+
+    #log {
+        background-color: #1e9c23;
+        margin: 0 auto;
+        padding: 5px;
+        border: 1px outset #f3f1f4;
+        text-align: center;
+        box-shadow: 2px 2px 1px #000000;
     }
 
     table, th {
