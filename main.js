@@ -79,7 +79,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
             $scope.obj.winner = 'Draw!';
             $scope.obj.nextPlayer = '';
             $scope.obj.ties++;
-            $scope.obj.play = fale;
+            $scope.obj.play = false;
             $scope.obj.$save();
             logIt();
         }
@@ -96,7 +96,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 
     // Reset game without overwritting current scores, ties, and player names.
     $scope.resetGame = function() {
-    	if (!$scope.obj.play) { // Make sure play == false to prevent restarts mid-game.
+    	if (!$scope.obj.play) { // Make sure play is false to prevent restarts mid-game.
 	    	$scope.obj.$set({
 				cells:['','','','','','','','',''], 
 				play: true, 
