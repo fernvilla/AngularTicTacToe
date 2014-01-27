@@ -6,6 +6,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
  	$scope.fbRoot.$on("loaded", function() {
 		var IDs = $scope.fbRoot.$getIndex();
 		if(IDs.length == 0) {
+			// Set all items here to be shared between players on different browsers.
 	 		$scope.fbRoot.$add({ 
 	 			cells:['','','','','','','','',''], 
 	 			play: true, 
@@ -28,9 +29,8 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 		}
 	});
 
+ 	// Variable mySymbol variable used as "gatekeeper" to prevent one player making both X and O moves.
 	var mySymbol;
-	$scope.stylePath = 'style.css';
-
     $scope.nextMove = function(x) {
         if ($scope.obj.play) {        
             if ($scope.obj.turns % 2 == 0 && ($scope.obj.cells[x] == '' && mySymbol != 'O')) {
@@ -38,7 +38,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 				$scope.obj.cells[x] = mySymbol;
 				$scope.obj.turns++;
 				$scope.obj.nextPlayer = $scope.obj.player2 + ' is next!';
-				$scope.obj.$save();
+				$scope.obj.$save(); // Saves player move to firebase object.
             }
             else if ($scope.obj.turns % 2 == 1 && ($scope.obj.cells[x] == '' && mySymbol != 'X')) {
             	mySymbol = 'O';
@@ -47,10 +47,11 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 				$scope.obj.nextPlayer = $scope.obj.player1 + ' is next!';
 				$scope.obj.$save();	
             }
-        checkWin();  
+        checkWin(); 
         }
     };
 
+    // Function will check for win after each time nextMove function is ran.
     function checkWin() {
     	var cell = $scope.obj.cells;
        	var win = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
@@ -62,7 +63,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
                 $scope.obj.nextPlayer = '';
                 $scope.obj.p1score++;
                 $scope.obj.$save();
-                logIt();
+                logIt(); // Call function to log outcomes.
             }
             else if ((cell[win[i][0]] == 'O' && cell[win[i][1]] == 'O' && cell[win[i][2]] == 'O')) {
                 $scope.obj.winner = $scope.obj.player2 +' wins in ' + $scope.obj.turns + ' moves!';
@@ -70,31 +71,33 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
                 $scope.obj.p2score++;
                 $scope.obj.play = false;
                 $scope.obj.$save();
-                logIt();
+                logIt(); 
             }
         }
+        // Keep outside of for-loop to prevent incorrect ties counter.
         if ($scope.obj.play && $scope.obj.turns == 9) {
             $scope.obj.winner = 'Draw!';
             $scope.obj.nextPlayer = '';
             $scope.obj.ties++;
-            $scope.obj.play = false;
+            $scope.obj.play = fale;
             $scope.obj.$save();
             logIt();
         }
     };
 
+    // Set new Firebase and create function to log outcomes.
     var logRef = new Firebase('https://fvtictactoe.firebaseio.com/');
-	$scope.logs = $firebase(logRef.limit(5));
-
+	$scope.logs = $firebase(logRef.limit(5)); 
     function logIt() {
     	$scope.logs.$add({
 			outcome: $scope.obj.winner 
 		});
     };
 
+    // Reset game without overwritting current scores, ties, and player names.
     $scope.resetGame = function() {
-    	if (!$scope.obj.play) { // Prevent players from restarting game before it's over
-	    	$scope.obj.$set({ 
+    	if (!$scope.obj.play) { // Make sure play == false to prevent restarts mid-game.
+	    	$scope.obj.$set({
 				cells:['','','','','','','','',''], 
 				play: true, 
 				turns: 0,
@@ -112,6 +115,7 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
 	    }
     };
 
+    // Clear score totals without overwritting player names.
     $scope.clearTotals = function() {
         $scope.obj.$set({
         	cells:['','','','','','','','',''], 
@@ -127,7 +131,8 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
         });
     };
 
-    // Function that changes the current stylesheet
+    // Toggles CSS stylesheet. Controller sets initial stylesheet to prevent missing sytling.
+    $scope.stylePath = 'style.css';
     $scope.changeStyle = function() {
         if ($scope.stylePath == 'style.css') {
             $scope.stylePath = 'style2.css';
@@ -138,10 +143,10 @@ myApp.controller('TicTacToeCtrl', function($scope, $firebase) {
     };   
 });
 
-// Controller for chat application
+// Controller for chat box. Limited to 20 messages.
 myApp.controller('ChatCtrl', function($scope, $firebase) {
 	var chatRef = new Firebase('https://fvtictactoe.firebaseio.com/');
-	$scope.messages = $firebase(chatRef.limit(15));
+	$scope.messages = $firebase(chatRef.limit(20));
 
   	$scope.addMessage = function() {
 		$scope.messages.$add({
